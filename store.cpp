@@ -16,7 +16,7 @@ int main()
 
   while(true)
   {
-  print_directions();
+  print_directions(0);
   cout << "input: ";
   cin >> input;
   test_input(input); //makes sure that the input the user gives is a valid instruction for the software
