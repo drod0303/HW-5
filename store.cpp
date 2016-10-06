@@ -20,7 +20,7 @@ int main()
   cout << "input: ";
   cin >> input;
   test_input(input); //makes sure that the input the user gives is a valid instruction for the software
-  //execute(input);
+  execute(input);
 }
 
 
