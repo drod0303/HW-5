@@ -3,5 +3,5 @@
 
 int Robot_Part::powerConsumedFunction(int speed)
 {
-
+    
 }

@@ -25,6 +25,7 @@ class Head : Robot_Part
 {
 public:
   //type
+  Head(){};
 
 };
 
@@ -33,18 +34,22 @@ class Arm : Robot_Part
 public:
   //type
   //int powerConsumedFunction(int speed);
+  Arm(){};
 };
 
 class Torso : Robot_Part
 {
 public:
-  const int batteryCompartments;
+  Torso(){};
+  int batteryCompartments; //might have to change to constant or final
+
 
 };
 
 class Locomotor : Robot_Part
 {
 public:
+  Locomotor(){};
   int maxSpeed;
   int powerConsumed;
 
@@ -55,6 +60,7 @@ public:
 class Battery : Robot_Part
 {
 public:
+  Battery(){};
   double energy;
   double maxPower;
 };
