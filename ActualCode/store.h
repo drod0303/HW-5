@@ -118,7 +118,7 @@ void fifteen()
        cout<<"\nPart Number: ";
        cin >> head.partNumber;
        cout << endl;
-
+       head_list.push_back(head);
        cout <<"\n    YOU JUST CREATED:\n";
        cout<< "      "<< head.name << "   " << head.partNumber<< endl;
     }
@@ -133,7 +133,7 @@ void fifteen()
       cout<<"\nBattery Compartments: ";
       cin >> torso.batteryCompartments;
       cout << endl;
-
+      torso_list.push_back(torso);
       cout <<"\n    YOU JUST CREATED:\n";
       cout<< "      "<< torso.name << "   " << torso.partNumber<< endl;
     }
@@ -146,7 +146,7 @@ void fifteen()
       cout<<"\nPart Number: ";
       cin >> arm.partNumber;
       cout << endl;
-
+      arm_list.push_back(arm);
       cout <<"\n    YOU JUST CREATED:\n";
       cout<< "      "<< arm.name << "   " << arm.partNumber<< endl;
     }
@@ -161,7 +161,7 @@ void fifteen()
       cout << "\nMax Speed: ";
       cin >> locomotor.maxSpeed;
       cout << endl;
-
+      locomotor_list.push_back(locomotor);
       cout <<"\n    YOU JUST CREATED:\n";
       cout<< "      "<< locomotor.name << "   " << locomotor.partNumber<< endl;
     }
@@ -178,7 +178,7 @@ void fifteen()
       cout << "\nMax Power: ";
       cin >> battery.maxPower;
       cout << endl;
-
+      battery_list.push_back(battery);j
       cout <<"\n    YOU JUST CREATED:\n";
       cout<< "      "<< battery.name << "   " << battery.partNumber<< endl;
     }
@@ -241,6 +241,8 @@ void execute(double path)
   }
   print_directions(0);
 }
+
+
 
 
 
