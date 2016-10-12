@@ -30,6 +30,8 @@ void print_directions(int path)
     cout << "4  Robot (M)odel" << endl;
     cout << "5  Robot (C)omponent" << endl;
     cout << "6  (Q)uit to Main Menu" << endl;
+    cin>>path;
+    cout<< "\n\n" << path <<"\n\n";
     cout << endl;
   }
   else if(path == 2)
@@ -43,7 +45,18 @@ void print_directions(int path)
     cout << "4  Robot (M)odels" << endl;
     cout << "5  Robot (P)arts" << endl;
     cout << "6  (Q)uit to Main Menu" << endl;
+    cin>>path;
+    cout<< "\n\n" << path <<"\n\n";
     cout << endl;
+  }
+  else if(path ==3)
+  {
+    cout<<"Your data has been saved." << endl;
+  }
+  else if(path ==4)
+  {
+    cout<<"Thank you, and have a nice day!" << endl;
+    exit(0);
   }
 
 }

@@ -2,6 +2,10 @@
 #define __ROBOTPART_H 2016
 
 #include "std_lib_facilities.h"
+int powerConsumedFunction(int speed)
+{
+
+}
 
 class Robot_Part
 {
@@ -24,7 +28,7 @@ class Robot_Part
 class Head : Robot_Part
 {
 public:
-  //type
+
   Head(){};
 
 };
@@ -33,7 +37,7 @@ class Arm : Robot_Part
 {
 public:
   //type
-  //int powerConsumedFunction(int speed);
+  int powerConsumedFunction(int speed);
   Arm(){};
 };
 
@@ -54,7 +58,7 @@ public:
   int powerConsumed;
 
 
-  //int powerConsumedFunction(int speed);
+  int powerConsumedFunction(int speed);
 };
 
 class Battery : Robot_Part
