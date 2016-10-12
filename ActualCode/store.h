@@ -4,6 +4,7 @@
 
 #include "std_lib_facilities.h"
 #include "robot_part.h"
+#include "robot_part.cpp"
 
 vector<Head> head_list;
 vector<Torso> torso_list;
@@ -95,7 +96,7 @@ void thirteen()
 }
 void fourteen()
 {
-
+  print_part_all();
 }
 void fifteen()
 {
@@ -117,6 +118,10 @@ void fifteen()
        cin >> head.name;
        cout<<"\nPart Number: ";
        cin >> head.partNumber;
+       cout<<"\nWeight: ";
+       cin >> head.weight;
+       cout<<"\nCost: ";
+       cin >> head.cost;
        cout << endl;
        head_list.push_back(head);
        cout <<"\n    YOU JUST CREATED:\n";
@@ -130,6 +135,10 @@ void fifteen()
       cin >> torso.name;
       cout<<"\nPart Number: ";
       cin >> torso.partNumber;
+      cout<<"\nWeight: ";
+      cin >> torso.weight;
+      cout<<"\nCost: ";
+      cin >> torso.cost;
       cout<<"\nBattery Compartments: ";
       cin >> torso.batteryCompartments;
       cout << endl;
@@ -145,6 +154,10 @@ void fifteen()
       cin >> arm.name;
       cout<<"\nPart Number: ";
       cin >> arm.partNumber;
+      cout<<"\nWeight: ";
+      cin >> arm.weight;
+      cout<<"\nCost: ";
+      cin >> arm.cost;
       cout << endl;
       arm_list.push_back(arm);
       cout <<"\n    YOU JUST CREATED:\n";
@@ -158,6 +171,10 @@ void fifteen()
       cin >> locomotor.name;
       cout<<"\nPart Number: ";
       cin >> locomotor.partNumber;
+      cout<<"\nWeight: ";
+      cin >> locomotor.weight;
+      cout<<"\nCost: ";
+      cin >> locomotor.cost;
       cout << "\nMax Speed: ";
       cin >> locomotor.maxSpeed;
       cout << endl;
@@ -173,12 +190,16 @@ void fifteen()
       cin >> battery.name;
       cout<<"\nPart Number: ";
       cin >> battery.partNumber;
+      cout<<"\nWeight: ";
+      cin >> battery.weight;
+      cout<<"\nCost: ";
+      cin >> battery.cost;
       cout << "\nEnergy: ";
       cin >> battery.energy;
       cout << "\nMax Power: ";
       cin >> battery.maxPower;
       cout << endl;
-      battery_list.push_back(battery);j
+      battery_list.push_back(battery);
       cout <<"\n    YOU JUST CREATED:\n";
       cout<< "      "<< battery.name << "   " << battery.partNumber<< endl;
     }
@@ -220,7 +241,7 @@ void execute(double path)
       break;
     case 13:
       break;
-    case 14:
+    case 14: fourteen();
       break;
     case 15: fifteen();
       break;
