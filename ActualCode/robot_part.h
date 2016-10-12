@@ -3,67 +3,105 @@
 
 #include "std_lib_facilities.h"
 
-class Robot_Part
-{
-  public:
-    virtual ~Robot_Part() = 0;
 
-  protected:
-    string name;
-    int partNumber;
-    //componentType componentType
-    double weight;
-    double cost;
-    string description;
-    //RenderedImage image
 
-    int powerConsumedFunction(int speed);
-
-};
-
-Robot_Part::~Robot_Part() {}
-
-class Head : Robot_Part
+class Head
 {
 public:
 
   Head(){};
+  string name;
+  string partNumber;
+  //componentType componentType
+  double weight;
+  double cost;
+  string description;
+  //RenderedImage image
+  int powerConsumedFunction(int speed);
+  int powerConsumed;
 
 };
 
-class Arm : Robot_Part
+class Arm
 {
 public:
   //type
 
   Arm(){};
+  string name;
+  string partNumber;
+  //componentType componentType
+  double weight;
+  double cost;
+  string description;
+  //RenderedImage image
+  int powerConsumedFunction(int speed);
+  int powerConsumed;
 };
 
-class Torso : Robot_Part
+class Torso
 {
 public:
   Torso(){};
   int batteryCompartments; //might have to change to constant or final
+  string name;
+  string partNumber;
+  //componentType componentType
+  double weight;
+  double cost;
+  string description;
+  //RenderedImage image
+  int powerConsumedFunction(int speed);
+  int powerConsumed;
 
 
 };
 
-class Locomotor : Robot_Part
+class Locomotor
 {
 public:
   Locomotor(){};
   int maxSpeed;
+  string name;
+  string partNumber;
+  //componentType componentType
+  double weight;
+  double cost;
+  string description;
+  //RenderedImage image
+  int powerConsumedFunction(int speed);
   int powerConsumed;
+
 
 
 
 };
 
-class Battery : Robot_Part
+class Battery
 {
 public:
   Battery(){};
   double energy;
   double maxPower;
+  string name;
+  string partNumber;
+  //componentType componentType
+  double weight;
+  double cost;
+  string description;
+  //RenderedImage image
+  int powerConsumedFunction(int speed);
+  int powerConsumed;
 };
+
+
+extern vector<Head> head_list;
+extern vector<Torso> torso_list;
+extern vector<Arm> arm_list;
+extern vector<Battery> battery_list;
+extern vector<Locomotor> locomotor_list;
+
+
+
+
  #endif

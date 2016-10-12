@@ -5,6 +5,12 @@
 #include "std_lib_facilities.h"
 #include "robot_part.h"
 
+vector<Head> head_list;
+vector<Torso> torso_list;
+vector<Arm> arm_list;
+vector<Battery> battery_list;
+vector<Locomotor> locomotor_list;
+
 void print_directions(double path);
 void execute(double path);
 
@@ -111,6 +117,10 @@ void fifteen()
        cin >> head.name;
        cout<<"\nPart Number: ";
        cin >> head.partNumber;
+       cout << endl;
+
+       cout <<"\n    YOU JUST CREATED:\n";
+       cout<< "      "<< head.name << "   " << head.partNumber<< endl;
     }
       break;
     case 2:
@@ -123,6 +133,9 @@ void fifteen()
       cout<<"\nBattery Compartments: ";
       cin >> torso.batteryCompartments;
       cout << endl;
+
+      cout <<"\n    YOU JUST CREATED:\n";
+      cout<< "      "<< torso.name << "   " << torso.partNumber<< endl;
     }
       break;
     case 3:
@@ -132,6 +145,10 @@ void fifteen()
       cin >> arm.name;
       cout<<"\nPart Number: ";
       cin >> arm.partNumber;
+      cout << endl;
+
+      cout <<"\n    YOU JUST CREATED:\n";
+      cout<< "      "<< arm.name << "   " << arm.partNumber<< endl;
     }
       break;
     case 4:
@@ -144,6 +161,9 @@ void fifteen()
       cout << "\nMax Speed: ";
       cin >> locomotor.maxSpeed;
       cout << endl;
+
+      cout <<"\n    YOU JUST CREATED:\n";
+      cout<< "      "<< locomotor.name << "   " << locomotor.partNumber<< endl;
     }
       break;
     case 5:
@@ -158,9 +178,14 @@ void fifteen()
       cout << "\nMax Power: ";
       cin >> battery.maxPower;
       cout << endl;
+
+      cout <<"\n    YOU JUST CREATED:\n";
+      cout<< "      "<< battery.name << "   " << battery.partNumber<< endl;
     }
       break;
   }
+
+
 }
 void twentyOne()
 {
