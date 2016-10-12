@@ -7,7 +7,7 @@
 int main()
 {
 
-  int input = -1;
+  double input = -1;
 
 
 
@@ -20,7 +20,7 @@ int main()
   cout << "input: ";
   cin >> input;
   test_input(input); //makes sure that the input the user gives is a valid instruction for the software
-  execute(input);
+  print_directions(input);
 }
 
 

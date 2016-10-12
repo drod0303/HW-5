@@ -3,12 +3,42 @@
 
 
 #include "std_lib_facilities.h"
-//#include "media.h"
 
-//vector<Media> publication_list;
-//Media media;
+void execute(double path)
+{
+  int switchValue = path*10;
 
-void print_directions(int path)
+  switch(switchValue)
+  {
+    case 11:
+      break;
+    case 12:
+      break;
+    case 13:
+      break;
+    case 14:
+      break;
+    case 15:
+      break;
+    case 16:
+      break;
+    case 21:
+      break;
+    case 22:
+      break;
+    case 23:
+      break;
+    case 24:
+      break;
+    case 25:
+      break;
+    case 26:
+      break;
+
+  }
+
+}
+void print_directions(double path)
 {
   if(path == 0)
   {
@@ -24,14 +54,14 @@ void print_directions(int path)
     cout << endl;
     cout<< "Create" << endl;
     cout << "--------" << endl;
-    cout << "1  (O)rder" << endl;
-    cout << "2  (C)ustomer" << endl;
-    cout << "3  (S)ales Associate" << endl;
-    cout << "4  Robot (M)odel" << endl;
-    cout << "5  Robot (C)omponent" << endl;
-    cout << "6  (Q)uit to Main Menu" << endl;
+    cout << "1.1  (O)rder" << endl;
+    cout << "1.2  (C)ustomer" << endl;
+    cout << "1.3  (S)ales Associate" << endl;
+    cout << "1.4  Robot (M)odel" << endl;
+    cout << "1.5  Robot (C)omponent" << endl;
+    cout << "1.6  (Q)uit to Main Menu" << endl;
     cin>>path;
-    cout<< "\n\n" << path <<"\n\n";
+    execute(path);
     cout << endl;
   }
   else if(path == 2)
@@ -39,14 +69,14 @@ void print_directions(int path)
     cout << endl;
     cout<< "Report" << endl;
     cout << "--------" << endl;
-    cout << "1  (O)rders" << endl;
-    cout << "2  (C)ustomers" << endl;
-    cout << "3  (S)ales Associates" << endl;
-    cout << "4  Robot (M)odels" << endl;
-    cout << "5  Robot (P)arts" << endl;
-    cout << "6  (Q)uit to Main Menu" << endl;
+    cout << "2.1  (O)rders" << endl;
+    cout << "2.2  (C)ustomers" << endl;
+    cout << "2.3  (S)ales Associates" << endl;
+    cout << "2.4  Robot (M)odels" << endl;
+    cout << "2.5  Robot (P)arts" << endl;
+    cout << "2.6  (Q)uit to Main Menu" << endl;
     cin>>path;
-    cout<< "\n\n" << path <<"\n\n";
+    execute(path);
     cout << endl;
   }
   else if(path ==3)
@@ -61,23 +91,22 @@ void print_directions(int path)
 
 }
 
-void test_input(int input)
+void test_input(double input)
 {
 
-  if ((input==1) || (input==2) || (input==3) || (input==4)){} //makes sure that the input is a valid key number
+  if ((input==1.0) || (input==2.0) || (input==3.0) || (input==4.0)){} //makes sure that the input is a valid key number
 
   else
   {
-    cout <<"That is an invalid operation\n"<< endl;
+    cout <<"That is an invalid operation. Goodbye!\n"<< endl;
     exit(0);
   }
 
 }
 
-void execute(int input)
-{
-    print_directions(input);
-}
+
+
+
 
 
  #endif

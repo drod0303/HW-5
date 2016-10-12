@@ -10,6 +10,7 @@ int powerConsumedFunction(int speed)
 class Robot_Part
 {
   public:
+    virtual ~Robot_Part() = 0;
 
   private:
     string name;
