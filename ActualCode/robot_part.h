@@ -2,17 +2,13 @@
 #define __ROBOTPART_H 2016
 
 #include "std_lib_facilities.h"
-int powerConsumedFunction(int speed)
-{
-
-}
 
 class Robot_Part
 {
   public:
     virtual ~Robot_Part() = 0;
 
-  private:
+  protected:
     string name;
     int partNumber;
     //componentType componentType
@@ -25,6 +21,7 @@ class Robot_Part
 
 };
 
+Robot_Part::~Robot_Part() {}
 
 class Head : Robot_Part
 {
@@ -38,7 +35,7 @@ class Arm : Robot_Part
 {
 public:
   //type
-  int powerConsumedFunction(int speed);
+
   Arm(){};
 };
 
@@ -59,7 +56,7 @@ public:
   int powerConsumed;
 
 
-  int powerConsumedFunction(int speed);
+
 };
 
 class Battery : Robot_Part

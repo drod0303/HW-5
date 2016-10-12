@@ -3,41 +3,13 @@
 
 
 #include "std_lib_facilities.h"
+#include "robot_part.h"
 
-void execute(double path)
-{
-  int switchValue = path*10;
+void print_directions(double path);
+void execute(double path);
 
-  switch(switchValue)
-  {
-    case 11:
-      break;
-    case 12:
-      break;
-    case 13:
-      break;
-    case 14:
-      break;
-    case 15:
-      break;
-    case 16:
-      break;
-    case 21:
-      break;
-    case 22:
-      break;
-    case 23:
-      break;
-    case 24:
-      break;
-    case 25:
-      break;
-    case 26:
-      break;
 
-  }
 
-}
 void print_directions(double path)
 {
   if(path == 0)
@@ -98,11 +70,155 @@ void test_input(double input)
 
   else
   {
-    cout <<"That is an invalid operation. Goodbye!\n"<< endl;
-    exit(0);
+    cout << "Sorry that input is invalid. Taking you back to main menus." << endl;
   }
 
 }
+
+void eleven()
+{
+
+}
+void twelve()
+{
+
+}
+void thirteen()
+{
+
+}
+void fourteen()
+{
+
+}
+void fifteen()
+{
+  double input = -1;
+  cout<<"\n Which robot component would you like to CREATE?";
+  cout<<"\n(1)  Head\n(2)  Torso\n(3)  Arm\n(4)  Locomotor\n(5)  Battery\n";
+  cin >> input;
+  if(input<1 || input > 5)
+  {
+    cout << "Sorry that input is invalid. Taking you back to main menus." << endl;
+    print_directions(0);
+  }
+  switch((int)input)
+  {
+    case 1:
+    {
+       Head head;
+       cout<<"\nName: ";
+       cin >> head.name;
+       cout<<"\nPart Number: ";
+       cin >> head.partNumber;
+    }
+      break;
+    case 2:
+    {
+      Torso torso;
+      cout<<"\nName: ";
+      cin >> torso.name;
+      cout<<"\nPart Number: ";
+      cin >> torso.partNumber;
+      cout<<"\nBattery Compartments: ";
+      cin >> torso.batteryCompartments;
+      cout << endl;
+    }
+      break;
+    case 3:
+    {
+      Arm arm;
+      cout<<"\nName: ";
+      cin >> arm.name;
+      cout<<"\nPart Number: ";
+      cin >> arm.partNumber;
+    }
+      break;
+    case 4:
+    {
+      Locomotor locomotor;
+      cout<<"\nName: ";
+      cin >> locomotor.name;
+      cout<<"\nPart Number: ";
+      cin >> locomotor.partNumber;
+      cout << "\nMax Speed: ";
+      cin >> locomotor.maxSpeed;
+      cout << endl;
+    }
+      break;
+    case 5:
+    {
+      Battery battery;
+      cout<<"\nName: ";
+      cin >> battery.name;
+      cout<<"\nPart Number: ";
+      cin >> battery.partNumber;
+      cout << "\nEnergy: ";
+      cin >> battery.energy;
+      cout << "\nMax Power: ";
+      cin >> battery.maxPower;
+      cout << endl;
+    }
+      break;
+  }
+}
+void twentyOne()
+{
+
+}
+void twentyTwo()
+{
+
+}
+void twentyThree()
+{
+
+}
+void twentyFour()
+{
+
+}
+void twentyFive()
+{
+
+}
+
+void execute(double path)
+{
+  int switchValue = path*10;
+
+  switch(switchValue)
+  {
+    case 11:
+      break;
+    case 12:
+      break;
+    case 13:
+      break;
+    case 14:
+      break;
+    case 15: fifteen();
+      break;
+    case 16:
+      break;
+    case 21:
+      break;
+    case 22:
+      break;
+    case 23:
+      break;
+    case 24:
+      break;
+    case 25:
+      break;
+    case 26:
+      break;
+  }
+  print_directions(0);
+}
+
+
+
 
 
 

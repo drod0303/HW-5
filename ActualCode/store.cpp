@@ -13,15 +13,15 @@ int main()
 
   cout << "\n\n MAIN MENU" << endl;
   cout << "------------------" << endl;
-
+  print_directions(0);
   while(true)
   {
-  print_directions(0);
   cout << "input: ";
   cin >> input;
   test_input(input); //makes sure that the input the user gives is a valid instruction for the software
   print_directions(input);
-}
+//  cout << "\n\n"<< battery.energy << "\n\n";
+  }
 
 
 }
