@@ -2,8 +2,7 @@
 #define __ROBOTPART_H 2016
 
 #include "std_lib_facilities.h"
-
-
+#include "robot_model.h"
 
 class Head
 {
@@ -100,6 +99,9 @@ extern vector<Torso> torso_list;
 extern vector<Arm> arm_list;
 extern vector<Battery> battery_list;
 extern vector<Locomotor> locomotor_list;
+
+extern vector<string> parts_list;
+
 
 
 

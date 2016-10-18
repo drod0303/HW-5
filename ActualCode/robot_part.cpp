@@ -107,8 +107,4 @@ void print_part_all()
   {
     print_part(5, i);
   }
-
-
-
-
 }

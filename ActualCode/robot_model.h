@@ -20,11 +20,10 @@ public:
     string price;
 
     void totalCost();
-    void find();
 
 };
 
-
+extern vector<Model> model_list;
 
 
  #endif
