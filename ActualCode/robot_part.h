@@ -13,8 +13,8 @@ public:
   string name;
   string partNumber;
   //componentType componentType
-  double weight;
-  double cost;
+  string weight;
+  string cost;
   string description;
   //RenderedImage image
   int powerConsumedFunction(int speed);
@@ -31,8 +31,8 @@ public:
   string name;
   string partNumber;
   //componentType componentType
-  double weight;
-  double cost;
+  string weight;
+  string cost;
   string description;
   //RenderedImage image
   int powerConsumedFunction(int speed);
@@ -43,12 +43,12 @@ class Torso
 {
 public:
   Torso(){};
-  int batteryCompartments; //might have to change to constant or final
+  string batteryCompartments; //might have to change to constant or final
   string name;
   string partNumber;
   //componentType componentType
-  double weight;
-  double cost;
+  string weight;
+  string cost;
   string description;
   //RenderedImage image
   int powerConsumedFunction(int speed);
@@ -61,12 +61,12 @@ class Locomotor
 {
 public:
   Locomotor(){};
-  int maxSpeed;
+  string maxSpeed;
   string name;
   string partNumber;
   //componentType componentType
-  double weight;
-  double cost;
+  string weight;
+  string cost;
   string description;
   //RenderedImage image
   int powerConsumedFunction(int speed);
@@ -81,13 +81,13 @@ class Battery
 {
 public:
   Battery(){};
-  double energy;
-  double maxPower;
+  string energy;
+  string maxPower;
   string name;
   string partNumber;
   //componentType componentType
-  double weight;
-  double cost;
+  string weight;
+  string cost;
   string description;
   //RenderedImage image
   int powerConsumedFunction(int speed);

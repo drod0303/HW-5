@@ -9,7 +9,6 @@ void print_part(int classNumber, int index)
 
     if(classNumber == 1)
     {
-
         cout<< "    " << head_list[index].name << ":\n";
         cout<< "      Part Number: " << head_list[index].partNumber << "\n";
         cout<< "      Weight: " << head_list[index].weight << "\n";

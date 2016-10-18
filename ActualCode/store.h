@@ -5,6 +5,7 @@
 #include "std_lib_facilities.h"
 #include "robot_part.h"
 #include "robot_part.cpp"
+#include "robot_model.h"
 
 vector<Head> head_list;
 vector<Torso> torso_list;
@@ -96,7 +97,25 @@ void thirteen()
 }
 void fourteen()
 {
+  string input;
+  cout<< "\n----------SELECT WHICH PARTS YOU WOULD LIKE TO USE.\n----------REMEMBER YOU CAN ONLY HAVE A MAX OF 2 ARMS AND AS MANY BATTERIES AS THE TORSO CAN HOLD.\n";
   print_part_all();
+  cout<< "\nSelect the parts you want by typing in the partnumber followed by enter. \nOnce you are ready to create the model press Q and then enter.\n";
+  do
+  {
+    cin>>input;
+
+    if(input == "Q" || input == "q")
+    {
+      break;
+    }
+    else
+    {
+
+    }
+
+
+  }while(!input.empty());
 }
 void fifteen()
 {
