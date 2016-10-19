@@ -92,7 +92,23 @@ void test_input(double input)
 
 void eleven()
 {
+  int model = -1;
+  int amount = -1;
+  if(model_list.size()>0)
+  {
+    cout<< "Here is a catalog of our latest Robot Models:\n\n";
+    printModels();
+    cout<< "Which model would you like to buy?\n";
+    cin >> model;
 
+
+
+
+  }
+  else
+  {
+    cout<<"I'm sorry but our boss hasn't created any new robot models.\n";
+  }
 }
 void twelve()
 {
@@ -289,7 +305,7 @@ void execute(double path)
 
   switch(switchValue)
   {
-    case 11:
+    case 11: eleven();
       break;
     case 12: twelve();
       break;

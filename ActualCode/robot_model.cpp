@@ -7,6 +7,7 @@ void printModels()
   int i = 0;
   for(i = 0;i<model_list.size();i++)
   {
+    cout<< "Model #" << i+1;
     model_list[i].print_my_parts();
   }
 }
@@ -72,6 +73,7 @@ void Model::print_my_parts()
   {
     cout<<"     Arm- " << setw(2)<<arm[i].name<<"   Part Number- " <<setw(2) <<  arm[i].partNumber <<setw(4)<< "   Cost- " << setw(2) << arm[i].cost<< endl;
   }
+  cout<<"       Total price: " << price << endl;
 }
 
 Model findAndAdd(string partNumber, Model model)

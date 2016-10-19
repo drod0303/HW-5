@@ -19,7 +19,7 @@ int main()
   {
   cout << "input: ";
   cin >> input;
-  test_input(input); 
+  test_input(input);
   print_directions(input);
 
   }

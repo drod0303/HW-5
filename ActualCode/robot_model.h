@@ -23,6 +23,7 @@ public:
     double totalCost();
     void print_my_parts();
 
+
 };
 
 extern vector<Model> model_list;
