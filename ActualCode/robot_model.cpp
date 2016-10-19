@@ -2,6 +2,15 @@
 #include "robot_model.h"
 #include "robot_part.h"
 
+void printModels()
+{
+  int i = 0;
+  for(i = 0;i<model_list.size();i++)
+  {
+    model_list[i].print_my_parts();
+  }
+}
+
 double Model::totalCost()
 {
   double headCost =0;
@@ -12,9 +21,7 @@ double Model::totalCost()
   double totalCost = 0;
   int i;
 
-  //headCost = stod(head[0].cost);
-  //locomotorCost = stod(locomotor[0].cost);
-  //torsoCost = stod(torso[0].cost);
+
   for(i=0;i<head.size();i++)
   {
     headCost = headCost + stod(head[i].cost);

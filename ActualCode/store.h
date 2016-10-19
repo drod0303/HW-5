@@ -7,6 +7,8 @@
 #include "robot_part.cpp"
 #include "robot_model.h"
 #include "robot_model.cpp"
+#include "people.h"
+#include "people.cpp"
 
 vector<Head> head_list;
 vector<Torso> torso_list;
@@ -14,6 +16,8 @@ vector<Arm> arm_list;
 vector<Battery> battery_list;
 vector<Locomotor> locomotor_list;
 vector<Model> model_list;
+vector<Customer> customer_list;
+vector<Salesman> salesman_list;
 
 void print_directions(double path);
 void execute(double path);
@@ -27,8 +31,8 @@ void print_directions(double path)
   {
     cout << endl;
     cout << "1  (C)reate" << endl;
-    cout << "2  (R)eport" << endl;
-    cout << "3  (S)ave" << endl;
+    //cout << "2  (R)eport" << endl;
+    //cout << "3  (S)ave" << endl;
     cout << "4  (Q)uit" << endl;
     cout << endl;
   }
@@ -92,11 +96,19 @@ void eleven()
 }
 void twelve()
 {
-
+  Customer customer;
+  cout<< "What is the name of this customer?\n";
+  cin >> customer.name;
+  cout << "You just created a new customer named: " << customer.name<< endl;
+  customer_list.push_back(customer);
 }
 void thirteen()
 {
-
+  Salesman salesman;
+  cout<<"What is the name of this new salesman?\n";
+  cin >> salesman.name;
+  cout<< "You just created a new salesman named: " << salesman.name << endl;
+  salesman_list.push_back(salesman);
 }
 void fourteen()
 {
@@ -279,9 +291,9 @@ void execute(double path)
   {
     case 11:
       break;
-    case 12:
+    case 12: twelve();
       break;
-    case 13:
+    case 13: thirteen();
       break;
     case 14: fourteen();
       break;
