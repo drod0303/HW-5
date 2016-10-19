@@ -9,11 +9,11 @@ class Model
 public:
 
     Model(){};
-    Head head;
+    vector<Head> head;
     vector<Arm> arm;
     vector<Battery> battery;
-    Torso torso;
-    Locomotor locomotor;
+    vector<Torso> torso;
+    vector<Locomotor> locomotor;
 
     string model_name;
     string model_number;
@@ -21,6 +21,7 @@ public:
     string price;
 
     double totalCost();
+    void print_my_parts();
 
 };
 

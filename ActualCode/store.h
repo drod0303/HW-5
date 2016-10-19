@@ -137,6 +137,7 @@ void fourteen()
   {
     cout<< "You just created " << model.model_name << " with a possible loss of $" << (stod(model.price) - model.total_cost)<< endl;
   }
+  model.print_my_parts();
 
 }
 void fifteen()
