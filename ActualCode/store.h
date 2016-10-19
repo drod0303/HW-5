@@ -13,9 +13,11 @@ vector<Torso> torso_list;
 vector<Arm> arm_list;
 vector<Battery> battery_list;
 vector<Locomotor> locomotor_list;
+vector<Model> model_list;
 
 void print_directions(double path);
 void execute(double path);
+
 
 
 
@@ -98,6 +100,7 @@ void thirteen()
 }
 void fourteen()
 {
+  Model model;
   string input;
   cout<< "\n----------SELECT WHICH PARTS YOU WOULD LIKE TO USE.\n----------REMEMBER YOU CAN ONLY HAVE A MAX OF 2 ARMS AND AS MANY BATTERIES AS THE TORSO CAN HOLD.\n";
   print_part_all();
@@ -112,11 +115,29 @@ void fourteen()
     }
     else
     {
-      //find(input);
+      model = findAndAdd(input, model);
     }
-
-
   }while(!input.empty());
+  model_list.push_back(model);
+  model.total_cost = model.totalCost();
+
+  cout<<"\nModel Name: ";
+  cin >> model.model_name;
+  cout<<"\nModel Number: ";
+  cin >> model.model_number;
+
+  cout<<"\nThe price to create " << model.model_name << " is  $" << model.total_cost<< endl;
+  cout<<" What would you like to price it at?\n";
+  cin>> model.price;
+  if(stod(model.price) >= model.total_cost)
+  {
+    cout<< "You just created " << model.model_name << " with a possible gain of $" << (stod(model.price) - model.total_cost)<< endl;
+  }
+  else
+  {
+    cout<< "You just created " << model.model_name << " with a possible loss of $" << (stod(model.price) - model.total_cost)<< endl;
+  }
+
 }
 void fifteen()
 {

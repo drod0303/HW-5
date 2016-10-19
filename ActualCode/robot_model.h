@@ -7,19 +7,20 @@
 class Model
 {
 public:
+
     Model(){};
     Head head;
     vector<Arm> arm;
     vector<Battery> battery;
     Torso torso;
-    Locomotor Locomotor;
+    Locomotor locomotor;
 
     string model_name;
     string model_number;
-    string total_cost;
+    double total_cost;
     string price;
 
-    void totalCost();
+    double totalCost();
 
 };
 

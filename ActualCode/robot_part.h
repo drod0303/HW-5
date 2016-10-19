@@ -2,7 +2,7 @@
 #define __ROBOTPART_H 2016
 
 #include "std_lib_facilities.h"
-#include "robot_model.h"
+
 
 class Head
 {
@@ -13,7 +13,7 @@ public:
   string partNumber;
   //componentType componentType
   string weight;
-  string cost;
+  string cost = "0";
   string description;
   //RenderedImage image
   int powerConsumedFunction(int speed);
@@ -31,7 +31,7 @@ public:
   string partNumber;
   //componentType componentType
   string weight;
-  string cost;
+  string cost = "0";
   string description;
   //RenderedImage image
   int powerConsumedFunction(int speed);
@@ -47,7 +47,7 @@ public:
   string partNumber;
   //componentType componentType
   string weight;
-  string cost;
+  string cost = "0";
   string description;
   //RenderedImage image
   int powerConsumedFunction(int speed);
@@ -65,7 +65,7 @@ public:
   string partNumber;
   //componentType componentType
   string weight;
-  string cost;
+  string cost = "0";
   string description;
   //RenderedImage image
   int powerConsumedFunction(int speed);
@@ -86,7 +86,7 @@ public:
   string partNumber;
   //componentType componentType
   string weight;
-  string cost;
+  string cost = "0";
   string description;
   //RenderedImage image
   int powerConsumedFunction(int speed);
@@ -101,8 +101,6 @@ extern vector<Battery> battery_list;
 extern vector<Locomotor> locomotor_list;
 
 extern vector<string> parts_list;
-
-
 
 
 

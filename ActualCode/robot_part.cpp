@@ -25,7 +25,7 @@ void print_part(int classNumber, int index)
         cout<< "      Part Number: " << torso_list[index].partNumber << "\n";
         cout<< "      Weight: " << torso_list[index].weight << "\n";
         cout<< "      Cost: " << torso_list[index].cost << "\n";
-        cout<< "      Battery Compartments: " << torso_list[index].cost << "\n";
+        cout<< "      Battery Compartments: " << torso_list[index].batteryCompartments << "\n";
         cout<< "      Description: " << torso_list[index].description << "\n";
         cout<< endl;
         cout<< endl;
