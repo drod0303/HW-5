@@ -94,12 +94,23 @@ void eleven()
 {
   int model = -1;
   int amount = -1;
-  if(model_list.size()>0)
+  if(model_list.size()>0 && salesman_list.size()>0 && customer_list.size()>0)
   {
     cout<< "Here is a catalog of our latest Robot Models:\n\n";
     printModels();
     cout<< "Which model would you like to buy?\n";
     cin >> model;
+    cout<< "How many would you like to purchase?\n";
+    cin >> amount;
+    if(amount<=0)
+    {
+      cout<<"Sorry we couldn't do business with you! Have a good day!"<< endl;
+      return;
+    }
+    else
+    {
+      cout<< "Congratulations you just bought " <<amount << " robot(s) of model type " << model_list[model-1].model_name<< " for $" << stoi(model_list[model-1].price) * amount<<endl;
+    }
 
 
 
@@ -107,7 +118,7 @@ void eleven()
   }
   else
   {
-    cout<<"I'm sorry but our boss hasn't created any new robot models.\n";
+    cout<<"I'm sorry but our boss needs to create a customer, salesman, and robot model for this function to operate.\n";
   }
 }
 void twelve()
@@ -146,7 +157,6 @@ void fourteen()
       model = findAndAdd(input, model);
     }
   }while(!input.empty());
-  model_list.push_back(model);
   model.total_cost = model.totalCost();
 
   cout<<"\nModel Name: ";
@@ -165,6 +175,7 @@ void fourteen()
   {
     cout<< "You just created " << model.model_name << " with a possible loss of $" << (stod(model.price) - model.total_cost)<< endl;
   }
+  model_list.push_back(model);
   model.print_my_parts();
 
 }

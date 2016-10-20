@@ -14,12 +14,10 @@ public:
     vector<Battery> battery;
     vector<Torso> torso;
     vector<Locomotor> locomotor;
-
     string model_name;
     string model_number;
     double total_cost;
     string price;
-
     double totalCost();
     void print_my_parts();
 

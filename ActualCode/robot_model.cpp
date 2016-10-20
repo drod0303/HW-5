@@ -7,7 +7,7 @@ void printModels()
   int i = 0;
   for(i = 0;i<model_list.size();i++)
   {
-    cout<< "Model #" << i+1;
+    cout<<"Model #"<<i+1;
     model_list[i].print_my_parts();
   }
 }
