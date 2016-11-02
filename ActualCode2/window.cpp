@@ -1,26 +1,63 @@
 // All programs include FL/Fl.H
-#include <FL/Fl.H> 
+#include <FL/Fl.H>
 // Include each “widget” you use
 #include <FL/Fl_Window.H>
+#include <FL/Fl_Menu_Bar.h>
+#include <FL/fl_ask.H>
 #include <FL/Fl_Box.H>
+#include "view.h"
+
+Fl_Window *win;
+Fl_Menu_Bar *menubar;
+View *view;
+
+
+void CloseCB(Fl_Widget* w, void* p)
+{
+  int selection = 1;
+  if (!view->saved())
+  {
+    selection = fl_choice("Unsaved drawing. Exit anyway?", fl_no, fl_yes, 0);
+  }
+  if (selection == 1)
+  {
+    win->hide();
+  }
+}
+
+Fl_Menu_Item menuitems[] =
+{
+  {"&File",0,0,0,FL_SUBMENU},
+    {"&Quit",FL_ALT + 'q', (FL_Callback *)CloseCB };
+    { 0 },
+  { 0 }
+};
+
+
+
 int main()
 {
+  const int x = 640;
+  const int y = 480;
 
 
 // Instance a new window object // Instance a new window object
-Fl_Window *win = new Fl_Window(340,180);
+Fl_Window *win = new Fl_Window(x,y,"Robbie Robot Shop Program");
 
-// Add a new box object to the window // Add a new box object to the window
-Fl_Box *box = new Fl_Box(20,40,300,100,"\n\n                  MAIN MENU\n             ------------------\n  ****NO SPACES ALLOWED WHEN INPUTING DATA****\n      Ex: John Dowe.....should be John_Dowe");
+// Create a view (a canvas on which to draw) // Create a view (a canvas on which to draw)
+view = new View{0, 0, X, Y};
 
+// Sign up for callback // Sign up for callback
+win->callback(CloseCB, view);
 
+// Enable resizing // Enable resizing
+win->resizable(*view);
 
+// Install menu bar
 
-// Set additional fields on the box to specify its appearance // Set additional fields on the box to specify its appearance
-box->box(FL_UP_BOX);
-box->labelfont(FL_BOLD+FL_ITALIC);
-box->labelsize(36);
-box->labeltype(FL_SHADOW_LABEL);
+menubar = new Fl_Menu_Bar(0, 0, X, 30);
+menubar->menu(menuitems);
+
 
 // Done defining the new Window // Done defining the new Window
 win->end();
