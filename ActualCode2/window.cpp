@@ -2,7 +2,7 @@
 #include <FL/Fl.H>
 // Include each “widget” you use
 #include <FL/Fl_Window.H>
-#include <FL/Fl_Menu_Bar.h>
+#include <FL/Fl_Menu_Bar.H>
 #include <FL/fl_ask.H>
 #include <FL/Fl_Box.H>
 #include "view.h"
@@ -28,7 +28,7 @@ void CloseCB(Fl_Widget* w, void* p)
 Fl_Menu_Item menuitems[] =
 {
   {"&File",0,0,0,FL_SUBMENU},
-    {"&Quit",FL_ALT + 'q', (FL_Callback *)CloseCB };
+    {"&Quit",FL_ALT + 'q', (Fl_Callback *)CloseCB },
     { 0 },
   { 0 }
 };
@@ -45,7 +45,7 @@ int main()
 Fl_Window *win = new Fl_Window(x,y,"Robbie Robot Shop Program");
 
 // Create a view (a canvas on which to draw) // Create a view (a canvas on which to draw)
-view = new View{0, 0, X, Y};
+view = new View{0, 0, x, y};
 
 // Sign up for callback // Sign up for callback
 win->callback(CloseCB, view);
@@ -55,7 +55,7 @@ win->resizable(*view);
 
 // Install menu bar
 
-menubar = new Fl_Menu_Bar(0, 0, X, 30);
+menubar = new Fl_Menu_Bar(0, 0, x, 30);
 menubar->menu(menuitems);
 
 
