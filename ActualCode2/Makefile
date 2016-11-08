@@ -8,10 +8,12 @@ debug: CXXFLAGS += -g
 debug: executable
 
 executable: window.o view.o
-	$(CXX) $(CXXOPTS) -I/usr/include/cairo -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -I/usr/include/pixman-1 -I/usr/include/freetype2 -I/usr/include/libpng12 -I/usr/include/freetype2 -I/usr/include/cairo -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -I/usr/include/pixman-1 -I/usr/include/freetype2 -I/usr/include/libpng12 -g -O2 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -D_THREAD_SAFE -D_REENTRANT -std=c++11 -o 'paint' 'window.o' 'view.o' -Wl,-Bsymbolic-functions -lfltk -1x11
+	$(CXX) $(CXXOPTS) -L/usr/local/lib -lfltk -lpthread -framework Cocoa -I/usr/local/include -I/usr/local/include/FL -I/usr/local/include/FL/images -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -D_THREAD_SAFE -D_REENTRANT -o 'window' 'window.cpp' -I/usr/local/include -I/usr/local/include/FL/images -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -D_THREAD_SAFE -D_REENTRANT -o 'view' 'view.cpp'
 window.o: view.h
-	$(CXX) -c $(CXXOPTS) $(fltk-config --cxxflags) window.cpp
+	$(CXX) -c $(CXXOPTS) -I/usr/local/include -I/usr/local/include/FL -I/usr/local/include/FL/images -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -D_THREAD_SAFE -D_REENTRANT  window.cpp
+	# $(CXX) -c $(CXXOPTS) $(fltk-config --cxxflags) window.cpp
 view.o: view.cpp view.h
-	$(CXX) -c $(CXXOPTS) $(fltk-config --cxxflags) view.cpp
+	$(CXX) -c $(CXXOPTS) -I/usr/local/include -I/usr/local/include/FL -I/usr/local/include/FL/images -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -D_THREAD_SAFE -D_REENTRANT  view.cpp
+	#$(CXX) -c $(CXXOPTS) $(fltk-config --cxxflags) view.cpp
 clean:
 	-rm -f *.o paint

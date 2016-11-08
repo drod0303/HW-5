@@ -15,10 +15,6 @@ View *view;
 void CloseCB(Fl_Widget* w, void* p)
 {
   int selection = 1;
-  if (!view->saved())
-  {
-    selection = fl_choice("Unsaved drawing. Exit anyway?", fl_no, fl_yes, 0);
-  }
   if (selection == 1)
   {
     win->hide();
