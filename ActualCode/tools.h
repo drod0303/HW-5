@@ -1,0 +1,74 @@
+
+#include <FL/Fl.H>
+#include <FL/Fl_Window.H>
+#include <FL/Fl_Button.H>
+#include <iostream>
+using namespace std;
+double input = -1;
+
+class MyButton : public Fl_Button
+{
+    static int count;
+public:
+    MyButton(int x,int y,int w,int h,const char*l=0)
+    :Fl_Button(x,y,w,h,l) {}
+
+    int handle(int e)
+    {
+        int ret = Fl_Button::handle(e);
+        cout<<endl<<count++<<" ******** button "<<label()<<" receives ";
+
+
+        switch(e)
+        {
+            case FL_PUSH:
+               cout<<"push"<<" event and returns:"<<ret<<endl;
+            break;
+
+            case FL_RELEASE:
+               cout<<"release"<<" event and returns:"<<ret<<endl;
+            break;
+    }
+    return(ret);
+    }
+
+};
+
+int MyButton::count=0;
+
+void but_a_cb(Fl_Widget* w, void* v){
+   cout <<endl<< "Button A callback!"<<endl;
+   input = 1;
+}
+
+void but_b_cb(Fl_Widget* w, void* v){
+   cout <<endl<< "Button B callback!"<<endl;
+   input = 2;
+}
+
+void but_c_cb(Fl_Widget* w, void* v){
+   cout <<endl<< "Button C callback!"<<endl;
+   input = 3;
+}
+
+/*int main()
+{
+    Fl_Window win(120,150);
+    win.begin();
+
+    MyButton but_a(10,10,100,25,"A");
+    but_a.shortcut('a');
+    but_a.callback(but_a_cb);
+
+    MyButton but_b(10,50,100,25,"B");
+    but_b.shortcut('b');
+    but_b.callback(but_b_cb);
+
+    MyButton but_c(10,90,100,25,"C");
+    but_c.shortcut('c');
+    but_c.callback(but_c_cb);
+
+    win.end();
+    win.show();
+    return(Fl::run());
+}*/

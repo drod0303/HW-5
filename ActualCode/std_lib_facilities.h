@@ -99,7 +99,7 @@ template< class T> struct Vector : public std::vector<T> {
 
 // trivially range-checked string (no iterator checking):
 struct String : std::string {
-	
+
 	String() { }
 	String(const char* p) :std::string(p) {}
 	String(const string& s) :std::string(s) {}
@@ -232,4 +232,3 @@ inline int randint(int min, int max) { return randint(max-min)+min; }
 inline double sqrt(int x) { return sqrt(double(x)); }	// to match C++0x
 
 #endif
-

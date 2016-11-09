@@ -6,6 +6,7 @@
 #include <FL/fl_ask.H>
 #include <FL/Fl_Box.H>
 #include "view.h"
+#include "window.h"
 
 Fl_Window *win;
 Fl_Menu_Bar *menubar;
@@ -33,26 +34,30 @@ Fl_Menu_Item menuitems[] =
 
 int main()
 {
-  const int x = 640;
-  const int y = 480;
+//  const int x = 640;
+//  const int y = 480;
+double input = -1;
 
-
-// Instance a new window object // Instance a new window object
+// Instance a new window object
 Fl_Window *win = new Fl_Window(x,y,"Robbie Robot Shop Program");
 
-// Create a view (a canvas on which to draw) // Create a view (a canvas on which to draw)
+// Create a view (a canvas on which to draw)
 view = new View{0, 0, x, y};
 
-// Sign up for callback // Sign up for callback
+// Sign up for callback
 win->callback(CloseCB, view);
 
-// Enable resizing // Enable resizing
+// Enable resizing
 win->resizable(*view);
 
 // Install menu bar
 
 menubar = new Fl_Menu_Bar(0, 0, x, 30);
 menubar->menu(menuitems);
+input = print_directions(0);
+
+
+
 
 
 // Done defining the new Window // Done defining the new Window

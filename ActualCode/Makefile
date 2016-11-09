@@ -1,22 +1,19 @@
-# Makefile for Elevators
-CXXFLAGS =
+CXX = g++
+CXXOPTS = -std=c++11
 
 all: executable
+rebild: clean all
 
 debug: CXXFLAGS += -g
 debug: executable
 
-rebuild: clean executable
-executable: store.o RobotPart.o
-	$(CXX) $(CXXFLAGS) store.o
-store.o: store.cpp store.h std_lib_facilities.h
-	$(CXX) $(CXXFLAGS) -w -c store.cpp
-RobotPart.o: robot_part.cpp robot_part.h std_lib_facilities.h
-		$(CXX) $(CXXFLAGS) -w -c robot_part.cpp
-RobotModel.o: robot_model.cpp robot_model.h std_lib_facilities.h
-		$(CXX) $(CXXFLAGS) -w -c robot_model.cpp
-customer.o: people.cpp people.h std_lib_facilities.h
-		$(CXX) $(CXXFLAGS) -w -c people.cpp
-
+executable: window.o view.o
+	$(CXX) $(CXXOPTS) -L/usr/local/lib -lfltk -lpthread -framework Cocoa -I/usr/local/include -I/usr/local/include/FL -I/usr/local/include/FL/images -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -D_THREAD_SAFE -D_REENTRANT -o 'window' 'window.cpp' -I/usr/local/include -I/usr/local/include/FL/images -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -D_THREAD_SAFE -D_REENTRANT -o 'shop' 'view.cpp'
+window.o: window.cpp window.h view.h
+	$(CXX) -c $(CXXOPTS) -I/usr/local/include -I/usr/local/include/FL -I/usr/local/include/FL/images -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -D_THREAD_SAFE -D_REENTRANT  window.cpp
+	# $(CXX) -c $(CXXOPTS) $(fltk-config --cxxflags) window.cpp
+view.o: view.cpp view.h
+	$(CXX) -c $(CXXOPTS) -I/usr/local/include -I/usr/local/include/FL -I/usr/local/include/FL/images -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -D_THREAD_SAFE -D_REENTRANT  view.cpp
+	#$(CXX) -c $(CXXOPTS) $(fltk-config --cxxflags) view.cpp
 clean:
-	rm -f *.o a.out
+	-rm -f *.o paint
