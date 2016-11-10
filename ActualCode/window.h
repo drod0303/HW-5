@@ -36,19 +36,64 @@ void print_directions(double path)
 
   if(path == 0)
   {
+
+
       button1 = new MyButton(x/2 - 20,(y/2)-20,100,25,"Create");
       button1->callback(but_create);
       button2 = new MyButton(x/2 - 20,(y/2)+20,100,25,"Quit");
       button2->callback(but_quit);
+      button3 = new MyButton(0,0,0,0,"");
+      button4 = new MyButton(0,0,0,0,"");
+      button5 = new MyButton(0,0,0,0,"");
+      button6 = new MyButton(0,0,0,0,"");
 
   }
   else if(path ==1)
   {
+    button1->label("Create Order");
+    button1->resize(x/2 - 80,(y/2)-120,200,25);
+    button1->redraw();
+    button1->show();
+    button1->callback(but_create_order);
+    button2->label("Create Customer");
+    button2->resize(x/2 - 80,(y/2)-80,200,25);
+    button2->redraw();
+    button2->show();
+    button2->callback(but_create_customer);
+    button3->label("Create Salesman");
+    button3->resize(x/2 - 80,(y/2)-40,200,25);
+    button3->redraw();
+    button3->show();
+    button3->callback(but_create_salesman);
+    button4->label("Create Robot Model");
+    button4->resize(x/2 - 80,(y/2),200,25);
+    button4->redraw();
+    button4->show();
+    button4->callback(but_create_robot_model);
+    button5->label("Create Robot Component");
+    button5->resize(x/2 - 80,(y/2)+40,200,25);
+    button5->redraw();
+    button5->show();
+    button5->callback(but_create_roboto_component);
+    button6->label("Quit to Main Menu");
+    button6->resize(x/2 - 80,(y/2)+80,200,25);
+    button6->redraw();
+    button6->show();
+    button6->callback(but_quit_to_main_menu);
+
+
+
+
+
+  /*  cout << "\n\nmaking it heren\n\n";
     button1 = new MyButton(x/2 - 80,(y/2)-120,200,25,"Create Order");
     button1->callback(but_create_order);
     button2 = new MyButton(x/2 - 80,(y/2)-80,200,25,"Create Customer");
     button2->callback(but_create_customer);
-    button3 = new MyButton(x/2 - 80,(y/2)-40,200,25,"Create Salesman");
+    button3->label("changed the label")
+    button3->resize(x/2 - 80,(y/2),200,25); //redraw needed
+    button3->redraw();
+
     button3->callback(but_create_salesman);
     button4 = new MyButton(x/2 - 80,(y/2),200,25,"Create Robot Model");
     button4->callback(but_create_robot_model);
@@ -56,6 +101,7 @@ void print_directions(double path)
     button5->callback(but_create_roboto_component);
     button6 = new MyButton(x/2 - 80,(y/2)+80,200,25,"Quit to Main Menu");
     button6->callback(but_quit_to_main_menu);
+*/
 
     /*
     cout << endl;
@@ -73,7 +119,7 @@ void print_directions(double path)
   }
   else if(path == 2)
   {
-    cout << endl;
+    /*cout << endl;
     cout<< "Report" << endl;
     cout << "--------" << endl;
     cout << "2.1  (O)rders" << endl;
@@ -84,16 +130,34 @@ void print_directions(double path)
     cout << "2.6  (Q)uit to Main Menu" << endl;
     cin>>path;
     execute(path);
-    cout << endl;
+    cout << endl;*/
   }
   else if(path ==3)
   {
-    cout<<"Your data has been saved." << endl;
+    /*cout<<"Your data has been saved." << endl;*/
   }
   else if(path ==4)
   {
-    cout<<"Thank you, and have a nice day!" << endl;
+    /*cout<<"Thank you, and have a nice day!" << endl;*/
     exit(0);
+  }
+  else if(path==5)
+  {
+    button1->label("Create");
+    button1->resize(x/2 - 20,(y/2)-20,100,25);
+    button1->redraw();
+    button1->show();
+    button1->callback(but_create);
+    button2->label("Quit");
+    button2->resize(x/2 - 20,(y/2)+20,100,25);
+    button2->redraw();
+    button2->show();
+    button2->callback(but_quit);
+    button3->hide();
+    button4->hide();
+    button5->hide();
+    button6->hide();
+
   }
 
 }
