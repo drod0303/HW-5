@@ -176,6 +176,7 @@ void test_input(double input)
 
 void eleven()
 {
+  
   int model = -1;
   int amount = -1;
   if(model_list.size()>0 && salesman_list.size()>0 && customer_list.size()>0)

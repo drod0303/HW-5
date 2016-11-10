@@ -48,7 +48,7 @@ void but_create(Fl_Widget* w, void* v){
 void but_quit(Fl_Widget* w, void* v){
    cout <<endl<< "Button quit callback!"<<endl;
    exit(0);
-   //w->hide();
+   w->hide();
 }
 
 void but_create_order(Fl_Widget* w, void* v){
