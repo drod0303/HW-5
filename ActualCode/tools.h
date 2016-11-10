@@ -3,8 +3,9 @@
 #include <FL/Fl_Window.H>
 #include <FL/Fl_Button.H>
 #include <iostream>
+#include "window.h"
 using namespace std;
-double input = -1;
+void print_directions(double path);
 
 class MyButton : public Fl_Button
 {
@@ -16,7 +17,7 @@ public:
     int handle(int e)
     {
         int ret = Fl_Button::handle(e);
-        cout<<endl<<count++<<" ******** button "<<label()<<" receives ";
+        //cout<<endl<<count++<<" ******** button "<<label()<<" receives ";
 
 
         switch(e)
@@ -36,19 +37,40 @@ public:
 
 int MyButton::count=0;
 
-void but_a_cb(Fl_Widget* w, void* v){
-   cout <<endl<< "Button A callback!"<<endl;
-   input = 1;
+void but_create(Fl_Widget* w, void* v){
+   cout <<endl<< "Button create callback!"<<endl;
+   print_directions(1);
 }
 
-void but_b_cb(Fl_Widget* w, void* v){
-   cout <<endl<< "Button B callback!"<<endl;
-   input = 2;
+void but_quit(Fl_Widget* w, void* v){
+   cout <<endl<< "Button quit callback!"<<endl;
+
 }
 
-void but_c_cb(Fl_Widget* w, void* v){
-   cout <<endl<< "Button C callback!"<<endl;
-   input = 3;
+void but_create_order(Fl_Widget* w, void* v){
+   cout <<endl<< "Button order callback!"<<endl;
+
+}
+
+void but_create_customer(Fl_Widget* w, void* v){
+   cout <<endl<< "Button customer callback!"<<endl;
+
+}
+void but_create_salesman(Fl_Widget* w, void* v){
+   cout <<endl<< "Button salesman callback!"<<endl;
+
+}
+void but_create_robot_model(Fl_Widget* w, void* v){
+   cout <<endl<< "Button model callback!"<<endl;
+
+}
+void but_create_roboto_component(Fl_Widget* w, void* v){
+   cout <<endl<< "Button component callback!"<<endl;
+
+}
+void but_quit_to_main_menu(Fl_Widget* w, void* v){
+   cout <<endl<< "Button main menu callback!"<<endl;
+
 }
 
 /*int main()

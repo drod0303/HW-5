@@ -20,31 +20,44 @@ vector<Locomotor> locomotor_list;
 vector<Model> model_list;
 vector<Customer> customer_list;
 vector<Salesman> salesman_list;
-MyButton *button1, *button2;
+MyButton *button1, *button2, *button3, *button4, *button5, *button6;
 const int x = 640;
 const int y = 480;
 
 
-doublem print_directions(double path);
+void print_directions(double path);
 void execute(double path);
 
 
 
 
-double print_directions(double path)
+void print_directions(double path)
 {
 
   if(path == 0)
   {
       button1 = new MyButton(x/2 - 20,(y/2)-20,100,25,"Create");
-      button1->callback(but_a_cb);
+      button1->callback(but_create);
       button2 = new MyButton(x/2 - 20,(y/2)+20,100,25,"Quit");
-      button2->callback(but_b_cb);
-      return input;
+      button2->callback(but_quit);
 
   }
   else if(path ==1)
   {
+    button1 = new MyButton(x/2 - 80,(y/2)-120,200,25,"Create Order");
+    button1->callback(but_create_order);
+    button2 = new MyButton(x/2 - 80,(y/2)-80,200,25,"Create Customer");
+    button2->callback(but_create_customer);
+    button3 = new MyButton(x/2 - 80,(y/2)-40,200,25,"Create Salesman");
+    button3->callback(but_create_salesman);
+    button4 = new MyButton(x/2 - 80,(y/2),200,25,"Create Robot Model");
+    button4->callback(but_create_robot_model);
+    button5 = new MyButton(x/2 - 80,(y/2)+40,200,25,"Create Robot Component");
+    button5->callback(but_create_roboto_component);
+    button6 = new MyButton(x/2 - 80,(y/2)+80,200,25,"Quit to Main Menu");
+    button6->callback(but_quit_to_main_menu);
+
+    /*
     cout << endl;
     cout<< "Create" << endl;
     cout << "--------" << endl;
@@ -56,7 +69,7 @@ double print_directions(double path)
     cout << "1.6  (Q)uit to Main Menu" << endl;
     cin>>path;
     execute(path);
-    cout << endl;
+    cout << endl;*/
   }
   else if(path == 2)
   {

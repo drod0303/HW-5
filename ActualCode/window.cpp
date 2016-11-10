@@ -54,7 +54,11 @@ win->resizable(*view);
 
 menubar = new Fl_Menu_Bar(0, 0, x, 30);
 menubar->menu(menuitems);
-input = print_directions(0);
+//print_directions(0);
+win->hide();
+Fl_Window *new1m = new Fl_Window(x,y,"Robbie Robot Shop Program NEW");
+print_directions(1);
+new1m->show();
 
 
 
@@ -64,7 +68,7 @@ input = print_directions(0);
 win->end();
 
 // Make the window visible, passing along any user options // Make the window visible, passing along any user options
-win->show();
+//win->show();
 
 // Enter the “command loop” waiting for events // Enter the “comman
 return(Fl::run());
