@@ -2,13 +2,43 @@
 #include <FL/Fl.H>
 #include <FL/Fl_Window.H>
 #include <FL/Fl_Button.H>
+#include <FL/Fl_Multiline_Input.H>
+#include <FL/Fl_Output.H>
+#include <FL/Fl_Input.H>
+
 #include <iostream>
 #include "window.h"
 using namespace std;
 void print_directions(double path);
 void execute(double path);
 
+class TextBox : public Fl_Input
+{
+  static int count;
+public:
 
+  TextBox(int x,int y,int w,int h,const char*l=0)
+  :Fl_Input(x,y,w,h,l) {}
+  //Fl_Input::when(FL_WHEN_ENTER_KEY)
+    //cout<<"enter key pressed" << endl;
+  /*int handle(int e)
+  {
+      int ret = Fl_Input::handle(e);
+      //cout<<endl<<count++<<" ******** button "<<label()<<" receives ";
+
+
+      switch(e)
+        {
+          case FL_WHEN_ENTER_KEY:
+             cout<<"enter"<<" event and returns:"<<ret<<endl;
+          break;
+
+        }
+  return(ret);
+}*/
+
+
+};
 class MyButton : public Fl_Button
 {
     static int count;
@@ -38,6 +68,7 @@ public:
 };
 
 int MyButton::count=0;
+int TextBox::count=0;
 
 void but_create(Fl_Widget* w, void* v){
    cout <<endl<< "Button create callback!"<<endl;
@@ -76,6 +107,13 @@ void but_quit_to_main_menu(Fl_Widget* w, void* v){
    cout <<endl<< "Button main menu callback!"<<endl;
    print_directions(5);
 }
+
+void input_salesman(Fl_Widget* w, void* v){
+   cout <<endl<< "text input salesman"<<endl;
+   //w->hide();
+   //print_directions(1);
+}
+
 
 /*int main()
 {

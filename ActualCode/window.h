@@ -11,6 +11,8 @@
 #include "people.cpp"
 #include "tools.h"
 #include <FL/Fl_Button.H>
+#include <FL/Fl_Multiline_Input.H>
+#include <FL/Fl_Output.H>
 
 vector<Head> head_list;
 vector<Torso> torso_list;
@@ -21,6 +23,7 @@ vector<Model> model_list;
 vector<Customer> customer_list;
 vector<Salesman> salesman_list;
 MyButton *button1, *button2, *button3, *button4, *button5, *button6;
+TextBox *input1;
 const int x = 640;
 const int y = 480;
 
@@ -176,7 +179,7 @@ void test_input(double input)
 
 void eleven()
 {
-  
+
   int model = -1;
   int amount = -1;
   if(model_list.size()>0 && salesman_list.size()>0 && customer_list.size()>0)
@@ -217,8 +220,20 @@ void twelve()
 void thirteen()
 {
   Salesman salesman;
-  cout<<"What is the name of this new salesman?\n";
-  cin >> salesman.name;
+  Fl_Window *win = new Fl_Window(x,y,"Robbie Robot Shop Program");
+  input1 = new TextBox(x/2 - 20,(y/2)-60,100,25,"Salesman input");
+  input1->callback(input_salesman);
+  salesman.name = input1->value();
+  win->end();
+  win->show();
+
+
+
+
+
+  //Salesman salesman;
+  //cout<<"What is the name of this new salesman?\n";
+  //cin >> salesman.name;
   cout<< "You just created a new salesman named: " << salesman.name << endl;
   salesman_list.push_back(salesman);
 }

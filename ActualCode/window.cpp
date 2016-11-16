@@ -54,7 +54,7 @@ menubar = new Fl_Menu_Bar(0, 0, x, 30);
 menubar->menu(menuitems);
 
 print_directions(0);
-//print_directions(1);
+
 
 
 
