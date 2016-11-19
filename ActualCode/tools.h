@@ -11,6 +11,7 @@
 using namespace std;
 void print_directions(double path);
 void execute(double path);
+void input_salesman(Fl_Widget* w, void* v);
 
 class TextBox : public Fl_Input
 {
@@ -21,7 +22,7 @@ public:
   :Fl_Input(x,y,w,h,l) {}
   //Fl_Input::when(FL_WHEN_ENTER_KEY)
     //cout<<"enter key pressed" << endl;
-  /*int handle(int e)
+  int handle(int e)
   {
       int ret = Fl_Input::handle(e);
       //cout<<endl<<count++<<" ******** button "<<label()<<" receives ";
@@ -30,12 +31,18 @@ public:
       switch(e)
         {
           case FL_WHEN_ENTER_KEY:
-             cout<<"enter"<<" event and returns:"<<ret<<endl;
+             if(ret == 1) cout<<"key pressed\n";
+             else
+             {
+              cout<<"enter key pressed\n";
+              callback(input_salesman);
+              return -1;
+             }
           break;
 
         }
   return(ret);
-}*/
+}
 
 
 };
@@ -110,7 +117,7 @@ void but_quit_to_main_menu(Fl_Widget* w, void* v){
 
 void input_salesman(Fl_Widget* w, void* v){
    cout <<endl<< "text input salesman"<<endl;
-   //w->hide();
+   w->hide();
    //print_directions(1);
 }
 

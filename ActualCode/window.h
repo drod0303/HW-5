@@ -13,6 +13,7 @@
 #include <FL/Fl_Button.H>
 #include <FL/Fl_Multiline_Input.H>
 #include <FL/Fl_Output.H>
+#include <FL/Fl_Input.H>
 
 vector<Head> head_list;
 vector<Torso> torso_list;
@@ -221,8 +222,13 @@ void thirteen()
 {
   Salesman salesman;
   Fl_Window *win = new Fl_Window(x,y,"Robbie Robot Shop Program");
-  input1 = new TextBox(x/2 - 20,(y/2)-60,100,25,"Salesman input");
-  input1->callback(input_salesman);
+  input1 = new TextBox(x/2 - 20,(y/2)-60,100,25,"Salesman name");
+  input1->when(FL_WHEN_ENTER_KEY_ALWAYS);
+  /*if (input1->handle(FL_WHEN_ENTER_KEY) == -1)
+  {
+    input1->callback(input_salesman);
+  }*/
+  //input1->callback(input_salesman);
   salesman.name = input1->value();
   win->end();
   win->show();
