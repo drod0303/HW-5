@@ -10,6 +10,7 @@
 #include "people.h"
 #include "people.cpp"
 #include "tools.h"
+#include "view.h"
 #include <FL/Fl_Button.H>
 #include <FL/Fl_Multiline_Input.H>
 #include <FL/Fl_Output.H>
@@ -220,28 +221,16 @@ void twelve()
 }
 void thirteen()
 {
+
   Salesman salesman;
-  Fl_Window *win = new Fl_Window(x,y,"Robbie Robot Shop Program");
-  input1 = new TextBox(x/2 - 20,(y/2)-60,100,25,"Salesman name");
-  input1->when(FL_WHEN_ENTER_KEY_ALWAYS);
-  /*if (input1->handle(FL_WHEN_ENTER_KEY) == -1)
+  if (fl_input("what is the name of the salesman?"))
   {
-    input1->callback(input_salesman);
-  }*/
-  //input1->callback(input_salesman);
+    TextBox *input1 = new TextBox(xx/2 - 20,(yy/2)-60,100,25,"Salesman name");
+  }
   salesman.name = input1->value();
-  win->end();
-  win->show();
-
-
-
-
-
-  //Salesman salesman;
-  //cout<<"What is the name of this new salesman?\n";
   //cin >> salesman.name;
-  cout<< "You just created a new salesman named: " << salesman.name << endl;
-  salesman_list.push_back(salesman);
+  //cout<< "You just created a new salesman named: " << salesman.name << endl;
+  //salesman_list.push_back(salesman);
 }
 void fourteen()
 {

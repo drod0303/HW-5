@@ -5,9 +5,13 @@
 #include <FL/Fl_Multiline_Input.H>
 #include <FL/Fl_Output.H>
 #include <FL/Fl_Input.H>
+#include <fl_ask.H>
 
 #include <iostream>
 #include "window.h"
+
+const int xx = 640;
+const int yy = 480;
 using namespace std;
 void print_directions(double path);
 void execute(double path);
@@ -113,6 +117,14 @@ void but_create_roboto_component(Fl_Widget* w, void* v){
 void but_quit_to_main_menu(Fl_Widget* w, void* v){
    cout <<endl<< "Button main menu callback!"<<endl;
    print_directions(5);
+}
+
+void window_callback(Fl_Widget* w, void*v){
+    //TextBox *input1 = new TextBox(xx/2 - 20,(yy/2)-60,100,25,"Salesman name");
+    //cout <<endl<< "text input salesman"<<endl;
+    //w->hide();
+
+        w->hide();
 }
 
 void input_salesman(Fl_Widget* w, void* v){
