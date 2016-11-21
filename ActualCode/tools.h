@@ -119,19 +119,9 @@ void but_quit_to_main_menu(Fl_Widget* w, void* v){
    print_directions(5);
 }
 
-void window_callback(Fl_Widget* w, void*v){
-    //TextBox *input1 = new TextBox(xx/2 - 20,(yy/2)-60,100,25,"Salesman name");
-    //cout <<endl<< "text input salesman"<<endl;
-    //w->hide();
 
-        w->hide();
-}
 
-void input_salesman(Fl_Widget* w, void* v){
-   cout <<endl<< "text input salesman"<<endl;
-   w->hide();
-   //print_directions(1);
-}
+
 
 
 /*int main()

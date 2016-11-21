@@ -16,6 +16,7 @@
 #include <FL/Fl_Output.H>
 #include <FL/Fl_Input.H>
 
+
 vector<Head> head_list;
 vector<Torso> torso_list;
 vector<Arm> arm_list;
@@ -213,35 +214,41 @@ void eleven()
 }
 void twelve()
 {
+  string text;
   Customer customer;
-  cout<< "What is the name of this customer?\n";
-  cin >> customer.name;
-  cout << "You just created a new customer named: " << customer.name<< endl;
+  const char *s = "what is the name of the customer?";
+  text = string{fl_input(s, 0)};
+
+  cout<<"you just created "<<text<<endl;
+  customer.name = text;
+
   customer_list.push_back(customer);
+
 }
 void thirteen()
 {
-
+  string text;
   Salesman salesman;
-  if (fl_input("what is the name of the salesman?"))
-  {
-    TextBox *input1 = new TextBox(xx/2 - 20,(yy/2)-60,100,25,"Salesman name");
-  }
-  salesman.name = input1->value();
-  //cin >> salesman.name;
-  //cout<< "You just created a new salesman named: " << salesman.name << endl;
-  //salesman_list.push_back(salesman);
+  const char *s = "what is the name of the salesman?";
+  text = string{fl_input(s, 0)};
+
+  cout<<"you just created "<<text<<endl;
+  salesman.name = text;
+
+  salesman_list.push_back(salesman);
 }
 void fourteen()
 {
-  Model model;
   string input;
-  cout<< "\n----------SELECT WHICH PARTS YOU WOULD LIKE TO USE.\n----------REMEMBER YOU CAN ONLY HAVE A MAX OF 2 ARMS AND AS MANY BATTERIES AS THE TORSO CAN HOLD.\n";
+  const char *s;
+
+  Model model;
+
   print_part_all();
-  cout<< "\nSelect the parts you want by typing in the partnumber followed by enter. \nOnce you are ready to create the model press Q and then enter.\n";
+  s = "Select the parts you want by typing in the partnumber followed by enter. \nOnce you are ready to create the model press Q and then enter.";
   do
   {
-    cin>>input;
+    input = string{fl_input(s, 0)};
 
     if(input == "Q" || input == "q")
     {
@@ -254,130 +261,134 @@ void fourteen()
   }while(!input.empty());
   model.total_cost = model.totalCost();
 
-  cout<<"\nModel Name: ";
-  cin >> model.model_name;
-  cout<<"\nModel Number: ";
-  cin >> model.model_number;
+  s = "Model Name?";
+  model.model_name = string{fl_input(s, 0)};
+  s = "Model Number?";
+  model.model_number = string{fl_input(s, 0)};
 
-  cout<<"\nThe price to create " << model.model_name << " is  $" << model.total_cost<< endl;
-  cout<<" What would you like to price it at?\n";
-  cin>> model.price;
-  if(stod(model.price) >= model.total_cost)
+  s = "Price?";
+  model.price = string{fl_input(s, 0)};
+
+  /*if(stod(model.price) >= model.total_cost)
   {
     cout<< "You just created " << model.model_name << " with a possible gain of $" << (stod(model.price) - model.total_cost)<< endl;
   }
   else
   {
     cout<< "You just created " << model.model_name << " with a possible loss of $" << (stod(model.price) - model.total_cost)<< endl;
-  }
+  }*/
   model_list.push_back(model);
-  model.print_my_parts();
+  //model.print_my_parts();
 
 }
 void fifteen()
 {
+
+  string text;
   double input = -1;
-  cout<<"\n Which robot component would you like to CREATE?";
-  cout<<"\n(1)  Head\n(2)  Torso\n(3)  Arm\n(4)  Locomotor\n(5)  Battery\n";
-  cin >> input;
-  if(input<1 || input > 5)
-  {
-    cout << "Sorry that input is invalid. Taking you back to main menus." << endl;
-    print_directions(0);
-  }
+  Customer customer;
+  const char *s = "Which Robot Component would you like to CREATE?\n(1)  Head\n(2)  Torso\n(3)  Arm\n(4)  Locomotor\n(5)  Battery\n";
+  text = string{fl_input(s, 0)};
+  input = std::stoi(text);
+
   switch((int)input)
   {
     case 1:
     {
        Head head;
-       cout<<"\nName: ";
-       cin >> head.name;
-       cout<<"\nPart Number: ";
-       cin >> head.partNumber;
-       cout<<"\nWeight: ";
-       cin >> head.weight;
-       cout<<"\nCost: ";
-       cin >> head.cost;
-       cout << endl;
+
+       s = "Name?";
+       head.name = string{fl_input(s, 0)};
+       s = "Part Number?";
+       head.partNumber = string{fl_input(s, 0)};
+       s = "Weight?";
+       head.weight = string{fl_input(s, 0)};
+       s = "Cost?";
+       head.cost = string{fl_input(s, 0)};
+
        head_list.push_back(head);
-       cout <<"\n    YOU JUST CREATED:\n";
-       cout<< "      "<< head.name << "   " << head.partNumber<< endl;
+       //cout <<"\n    YOU JUST CREATED:\n";
+       //cout<< "      "<< head.name << "   " << head.partNumber<< endl;
     }
       break;
     case 2:
     {
+
+
       Torso torso;
-      cout<<"\nName: ";
-      cin >> torso.name;
-      cout<<"\nPart Number: ";
-      cin >> torso.partNumber;
-      cout<<"\nWeight: ";
-      cin >> torso.weight;
-      cout<<"\nCost: ";
-      cin >> torso.cost;
-      cout<<"\nBattery Compartments: ";
-      cin >> torso.batteryCompartments;
-      cout << endl;
+
+      s = "Name?";
+      torso.name = string{fl_input(s, 0)};
+      s = "Part Number?";
+      torso.partNumber = string{fl_input(s, 0)};
+      s = "Weight?";
+      torso.weight = string{fl_input(s, 0)};
+      s = "Cost?";
+      torso.cost = string{fl_input(s, 0)};
+      s = "Battery Compartments?";
+      torso.batteryCompartments = string{fl_input(s, 0)};
+
       torso_list.push_back(torso);
-      cout <<"\n    YOU JUST CREATED:\n";
-      cout<< "      "<< torso.name << "   " << torso.partNumber<< endl;
+      //cout <<"\n    YOU JUST CREATED:\n";
+      //cout<< "      "<< torso.name << "   " << torso.partNumber<< endl;
     }
       break;
     case 3:
     {
       Arm arm;
-      cout<<"\nName: ";
-      cin >> arm.name;
-      cout<<"\nPart Number: ";
-      cin >> arm.partNumber;
-      cout<<"\nWeight: ";
-      cin >> arm.weight;
-      cout<<"\nCost: ";
-      cin >> arm.cost;
-      cout << endl;
+
+      s = "Name?";
+      arm.name = string{fl_input(s, 0)};
+      s = "Part Number?";
+      arm.partNumber = string{fl_input(s, 0)};
+      s = "Weight?";
+      arm.weight = string{fl_input(s, 0)};
+      s = "Cost?";
+      arm.cost = string{fl_input(s, 0)};
+
       arm_list.push_back(arm);
-      cout <<"\n    YOU JUST CREATED:\n";
-      cout<< "      "<< arm.name << "   " << arm.partNumber<< endl;
+      //cout <<"\n    YOU JUST CREATED:\n";
+      //cout<< "      "<< arm.name << "   " << arm.partNumber<< endl;
     }
       break;
     case 4:
     {
       Locomotor locomotor;
-      cout<<"\nName: ";
-      cin >> locomotor.name;
-      cout<<"\nPart Number: ";
-      cin >> locomotor.partNumber;
-      cout<<"\nWeight: ";
-      cin >> locomotor.weight;
-      cout<<"\nCost: ";
-      cin >> locomotor.cost;
-      cout << "\nMax Speed: ";
-      cin >> locomotor.maxSpeed;
-      cout << endl;
+      s = "Name?";
+      locomotor.name = string{fl_input(s, 0)};
+      s = "Part Number?";
+      locomotor.partNumber = string{fl_input(s, 0)};
+      s = "Weight?";
+      locomotor.weight = string{fl_input(s, 0)};
+      s = "Cost?";
+      locomotor.cost = string{fl_input(s, 0)};
+      s = "Max Speed?";
+      locomotor.maxSpeed = string{fl_input(s, 0)};
+
       locomotor_list.push_back(locomotor);
-      cout <<"\n    YOU JUST CREATED:\n";
-      cout<< "      "<< locomotor.name << "   " << locomotor.partNumber<< endl;
+      //cout <<"\n    YOU JUST CREATED:\n";
+      //cout<< "      "<< locomotor.name << "   " << locomotor.partNumber<< endl;
     }
       break;
     case 5:
     {
       Battery battery;
-      cout<<"\nName: ";
-      cin >> battery.name;
-      cout<<"\nPart Number: ";
-      cin >> battery.partNumber;
-      cout<<"\nWeight: ";
-      cin >> battery.weight;
-      cout<<"\nCost: ";
-      cin >> battery.cost;
-      cout << "\nEnergy: ";
-      cin >> battery.energy;
-      cout << "\nMax Power: ";
-      cin >> battery.maxPower;
-      cout << endl;
+      s = "Name?";
+      battery.name = string{fl_input(s, 0)};
+      s = "Part Number?";
+      battery.partNumber = string{fl_input(s, 0)};
+      s = "Weight?";
+      battery.weight = string{fl_input(s, 0)};
+      s = "Cost?";
+      battery.cost = string{fl_input(s, 0)};
+      s = "Energy?";
+      battery.energy = string{fl_input(s, 0)};
+      s = "Max Power?";
+      battery.maxPower = string{fl_input(s, 0)};
+
       battery_list.push_back(battery);
-      cout <<"\n    YOU JUST CREATED:\n";
-      cout<< "      "<< battery.name << "   " << battery.partNumber<< endl;
+    //  cout <<"\n    YOU JUST CREATED:\n";
+    //  cout<< "      "<< battery.name << "   " << battery.partNumber<< endl;
     }
       break;
   }
