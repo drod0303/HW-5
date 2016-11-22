@@ -2,7 +2,7 @@ CXX = g++
 CXXOPTS = -std=c++11
 
 all: executable
-rebild: clean all
+rebuild: clean all
 
 debug: CXXFLAGS += -g
 debug: executable

@@ -118,30 +118,3 @@ void but_quit_to_main_menu(Fl_Widget* w, void* v){
    //cout <<endl<< "Button main menu callback!"<<endl;
    print_directions(5);
 }
-
-
-
-
-
-
-/*int main()
-{
-    Fl_Window win(120,150);
-    win.begin();
-
-    MyButton but_a(10,10,100,25,"A");
-    but_a.shortcut('a');
-    but_a.callback(but_a_cb);
-
-    MyButton but_b(10,50,100,25,"B");
-    but_b.shortcut('b');
-    but_b.callback(but_b_cb);
-
-    MyButton but_c(10,90,100,25,"C");
-    but_c.shortcut('c');
-    but_c.callback(but_c_cb);
-
-    win.end();
-    win.show();
-    return(Fl::run());
-}*/
