@@ -1,14 +1,19 @@
 #include "std_lib_facilities.h"
 #include "robot_part.h"
+#include <FL/Fl_Multiline_Output.H>
+#include <FL/Fl_Window.H>
+#include <FL/FL_Text_Display.H>
+const int xxx = 640;
+const int yyy = 480;
 
-
-void print_part(int classNumber, int index)
+void print_part(int classNumber, int index,  Fl_Text_Buffer *buff)
 {
-
-    cout << endl;
 
     if(classNumber == 1)
     {
+        buff->insert(50,"     Part Number:\n");
+        buff->insert(100,"     Weight:\n");
+        buff->insert(150,"     Cost:\n");
         cout<< "    " << head_list[index].name << ":\n";
         cout<< "      Part Number: " << head_list[index].partNumber << "\n";
         cout<< "      Weight: " << head_list[index].weight << "\n";
@@ -76,35 +81,42 @@ void print_part(int classNumber, int index)
 
 void print_part_all()
 {
+
+  Fl_Window *win = new Fl_Window(640, 480);
+     Fl_Text_Buffer *buff = new Fl_Text_Buffer();
+     Fl_Text_Display *disp = new Fl_Text_Display(20, 20, 640-40, 480-40, "Display");
+     disp->buffer(buff);
+     win->resizable(*disp);
+     win->show();
+
+
+
   int i = 0;
-  cout<< "HEAD PARTS:\n";
+  buff->text("HEAD PARTS:\n");
+
   for(i=0;i<head_list.size();i++)
   {
-    print_part(1, i);
+    print_part(1, i, buff);
   }
-
-  cout<<"TORSO PARTS:\n";
+  buff->insert(200,"TORSO PARTS:\n");
   for(i=0;i<torso_list.size();i++)
   {
-    print_part(2, i);
+    print_part(2, i, buff);
   }
-
-  cout<<"ARM PARTS:\n";
+ buff->insert(400,"ARM PARTS:\n");
   for(i=0;i<arm_list.size();i++)
   {
-    print_part(3, i);
+    print_part(3, i, buff);
   }
-
-  cout<<"LOCOMOTOR PARTS:\n";
+  buff->insert(600,"LOCOMOTOR PARTS:\n");
   for(i=0;i<locomotor_list.size();i++)
   {
-    print_part(4, i);
+    print_part(4, i, buff);
   }
 
-
-  cout<<"BATTERY PARTS:\n";
+  buff->insert(800,"BATTERY PARTS:\n");
   for(i=0;i<battery_list.size();i++)
   {
-    print_part(5, i);
+    print_part(5, i, buff);
   }
 }

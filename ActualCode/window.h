@@ -182,25 +182,32 @@ void test_input(double input)
 
 void eleven()
 {
-
   int model = -1;
   int amount = -1;
+  string text;
+  const char *s;
+
+
+
+
   if(model_list.size()>0 && salesman_list.size()>0 && customer_list.size()>0)
   {
-    cout<< "Here is a catalog of our latest Robot Models:\n\n";
+    //cout<< "Here is a catalog of our latest Robot Models:\n\n";
     printModels();
-    cout<< "Which model would you like to buy?\n";
-    cin >> model;
-    cout<< "How many would you like to purchase?\n";
-    cin >> amount;
+    s = "Which model would you like to buy?";
+    text = string{fl_input(s, 0)};
+    model = stod(text);
+    s = "How many would you like to purchase?";
+    text = string{fl_input(s, 0)};
+    amount = stod(text);
     if(amount<=0)
     {
-      cout<<"Sorry we couldn't do business with you! Have a good day!"<< endl;
+      //cout<<"Sorry we couldn't do business with you! Have a good day!"<< endl;
       return;
     }
     else
     {
-      cout<< "Congratulations you just bought " <<amount << " robot(s) of model type " << model_list[model-1].model_name<< " for $" << stoi(model_list[model-1].price) * amount<<endl;
+      //cout<< "Congratulations you just bought " <<amount << " robot(s) of model type " << model_list[model-1].model_name<< " for $" << stoi(model_list[model-1].price) * amount<<endl;
     }
 
 
@@ -209,7 +216,7 @@ void eleven()
   }
   else
   {
-    cout<<"I'm sorry but our boss needs to create a customer, salesman, and robot model for this function to operate.\n";
+    //cout<<"I'm sorry but our boss needs to create a customer, salesman, and robot model for this function to operate.\n";
   }
 }
 void twelve()
@@ -278,7 +285,7 @@ void fourteen()
     cout<< "You just created " << model.model_name << " with a possible loss of $" << (stod(model.price) - model.total_cost)<< endl;
   }*/
   model_list.push_back(model);
-  //model.print_my_parts();
+  model.print_my_parts();
 
 }
 void fifteen()
