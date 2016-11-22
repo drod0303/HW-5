@@ -15,6 +15,8 @@
 #include <FL/Fl_Multiline_Input.H>
 #include <FL/Fl_Output.H>
 #include <FL/Fl_Input.H>
+#include <fl_ask.H>
+
 
 
 vector<Head> head_list;
@@ -175,7 +177,7 @@ void test_input(double input)
 
   else
   {
-    cout << "Sorry that input is invalid. Taking you back to main menus." << endl;
+    //cout << "Sorry that input is invalid. Taking you back to main menus." << endl;
   }
 
 }
@@ -202,11 +204,13 @@ void eleven()
     amount = stod(text);
     if(amount<=0)
     {
-      //cout<<"Sorry we couldn't do business with you! Have a good day!"<< endl;
+      s = "Sorry we couldn't do business with you! Have a good day!";
+      fl_alert(s,0);
       return;
     }
     else
     {
+      
       //cout<< "Congratulations you just bought " <<amount << " robot(s) of model type " << model_list[model-1].model_name<< " for $" << stoi(model_list[model-1].price) * amount<<endl;
     }
 
@@ -216,6 +220,9 @@ void eleven()
   }
   else
   {
+
+    s = "I'm sorry but our boss needs to create a customer, salesman, and robot model for this function to operate.\n";
+    fl_alert(s,0);
     //cout<<"I'm sorry but our boss needs to create a customer, salesman, and robot model for this function to operate.\n";
   }
 }
@@ -226,7 +233,7 @@ void twelve()
   const char *s = "what is the name of the customer?";
   text = string{fl_input(s, 0)};
 
-  cout<<"you just created "<<text<<endl;
+  //cout<<"you just created "<<text<<endl;
   customer.name = text;
 
   customer_list.push_back(customer);
@@ -239,7 +246,7 @@ void thirteen()
   const char *s = "what is the name of the salesman?";
   text = string{fl_input(s, 0)};
 
-  cout<<"you just created "<<text<<endl;
+  //cout<<"you just created "<<text<<endl;
   salesman.name = text;
 
   salesman_list.push_back(salesman);

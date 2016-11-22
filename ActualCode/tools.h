@@ -35,10 +35,10 @@ public:
       switch(e)
         {
           case FL_WHEN_ENTER_KEY:
-             if(ret == 1) cout<<"key pressed\n";
-             else
+
+             if(ret!=1)
              {
-              cout<<"enter key pressed\n";
+
               callback(input_salesman);
               return -1;
              }
@@ -66,11 +66,11 @@ public:
         switch(e)
         {
             case FL_PUSH:
-               cout<<"push"<<" event and returns:"<<ret<<endl;
+               //cout<<"push"<<" event and returns:"<<ret<<endl;
             break;
 
             case FL_RELEASE:
-               cout<<"release"<<" event and returns:"<<ret<<endl;
+               //cout<<"release"<<" event and returns:"<<ret<<endl;
             break;
     }
     return(ret);
@@ -82,40 +82,40 @@ int MyButton::count=0;
 int TextBox::count=0;
 
 void but_create(Fl_Widget* w, void* v){
-   cout <<endl<< "Button create callback!"<<endl;
+   //cout <<endl<< "Button create callback!"<<endl;
    w->hide();
    print_directions(1);
 }
 
 void but_quit(Fl_Widget* w, void* v){
-   cout <<endl<< "Button quit callback!"<<endl;
+   //cout <<endl<< "Button quit callback!"<<endl;
    exit(0);
    w->hide();
 }
 
 void but_create_order(Fl_Widget* w, void* v){
-   cout <<endl<< "Button order callback!"<<endl;
+  // cout <<endl<< "Button order callback!"<<endl;
    execute(1.1);
 }
 
 void but_create_customer(Fl_Widget* w, void* v){
-   cout <<endl<< "Button customer callback!"<<endl;
+   //cout <<endl<< "Button customer callback!"<<endl;
    execute(1.2);
 }
 void but_create_salesman(Fl_Widget* w, void* v){
-   cout <<endl<< "Button salesman callback!"<<endl;
+   //cout <<endl<< "Button salesman callback!"<<endl;
    execute(1.3);
 }
 void but_create_robot_model(Fl_Widget* w, void* v){
-   cout <<endl<< "Button model callback!"<<endl;
+   //cout <<endl<< "Button model callback!"<<endl;
    execute(1.4);
 }
 void but_create_roboto_component(Fl_Widget* w, void* v){
-   cout <<endl<< "Button component callback!"<<endl;
+  // cout <<endl<< "Button component callback!"<<endl;
    execute(1.5);
 }
 void but_quit_to_main_menu(Fl_Widget* w, void* v){
-   cout <<endl<< "Button main menu callback!"<<endl;
+   //cout <<endl<< "Button main menu callback!"<<endl;
    print_directions(5);
 }
 
