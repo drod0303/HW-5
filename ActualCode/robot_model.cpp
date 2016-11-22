@@ -1,13 +1,16 @@
 #include "std_lib_facilities.h"
 #include "robot_model.h"
 #include "robot_part.h"
+#include <FL/Fl_Window.H>
+#include <FL/FL_Text_Display.H>
+#include <fl_ask.H>
 
 void printModels()
 {
   int i = 0;
   for(i = 0;i<model_list.size();i++)
   {
-    cout<<"Model #"<<i+1;
+    //cout<<"Model #"<<i+1;
     model_list[i].print_my_parts();
   }
 }
@@ -52,34 +55,86 @@ double Model::totalCost()
 void Model::print_my_parts()
 {
   int i = 0;
-  cout<<"\n"<<model_name<<":\n";
+  //static int j = 0;
+  //string num = to_string(j);
+  Fl_Window *win = new Fl_Window(640, 480);
+     Fl_Text_Buffer *buff = new Fl_Text_Buffer();
+     Fl_Text_Display *disp = new Fl_Text_Display(20, 20, 640-40, 480-40, "Available Models");
+     disp->buffer(buff);
+     win->resizable(*disp);
+     win->show();
+
+  //disp->insert("Model #");
+  //disp->insert(num.c_str());
+  //disp->insert("  ");
+  disp->insert(model_name.c_str());
+  disp->insert("\n");
+  //j++;
+
   for(i=0;i<head.size();i++)
   {
-    cout<<"     Head- " << setw(2)<<head[i].name<<"   Part Number- " <<setw(2) <<  head[i].partNumber << setw(4)<<"   Cost- " << setw(2) << head[i].cost<< endl;
+    disp->insert("    Head- ");
+    disp->insert(head[i].name.c_str());
+    disp->insert("    Part Number- ");
+    disp->insert(head[i].partNumber.c_str());
+    disp->insert("    Cost- ");
+    disp->insert(head[i].cost.c_str());
+    disp->insert("\n");
+
   }
   for(i=0;i<torso.size();i++)
   {
-    cout<<"     Torso- " << setw(2)<<torso[i].name<<"   Part Number- " <<setw(2) <<  torso[i].partNumber <<setw(4)<< "   Cost- " << setw(2) << torso[i].cost<< endl;
+    disp->insert("    Torso- ");
+    disp->insert(torso[i].name.c_str());
+    disp->insert("    Part Number- ");
+    disp->insert(torso[i].partNumber.c_str());
+    disp->insert("    Cost- ");
+    disp->insert(torso[i].cost.c_str());
+    disp->insert("\n");
+
   }
   for(i=0;i<locomotor.size();i++)
   {
-    cout<<"     Locomotor- " << setw(2)<<locomotor[i].name<<"   Part Number- " <<setw(2) <<  locomotor[i].partNumber << setw(4)<<"   Cost- " << setw(2) << locomotor[i].cost<< endl;
+    disp->insert("    Locomotor- ");
+    disp->insert(locomotor[i].name.c_str());
+    disp->insert("    Part Number- ");
+    disp->insert(locomotor[i].partNumber.c_str());
+    disp->insert("    Cost- ");
+    disp->insert(locomotor[i].cost.c_str());
+    disp->insert("\n");
   }
   for(i=0;i<battery.size();i++)
   {
-    cout<<"     Battery- " << setw(2)<<battery[i].name<<"   Part Number- " <<setw(2) <<  battery[i].partNumber << setw(4)<<"   Cost- " << setw(2) << battery[i].cost<< endl;
+    disp->insert("    Battery- ");
+    disp->insert(battery[i].name.c_str());
+    disp->insert("    Part Number- ");
+    disp->insert(battery[i].partNumber.c_str());
+    disp->insert("    Cost- ");
+    disp->insert(battery[i].cost.c_str());
+    disp->insert("\n");
+
   }
   for(i=0;i<arm.size();i++)
   {
-    cout<<"     Arm- " << setw(2)<<arm[i].name<<"   Part Number- " <<setw(2) <<  arm[i].partNumber <<setw(4)<< "   Cost- " << setw(2) << arm[i].cost<< endl;
+    disp->insert("    Arm- ");
+    disp->insert(arm[i].name.c_str());
+    disp->insert("    Part Number- ");
+    disp->insert(arm[i].partNumber.c_str());
+    disp->insert("    Cost- ");
+    disp->insert(arm[i].cost.c_str());
+    disp->insert("\n");
+
   }
-  cout<<"       Total price: " << price << endl;
+  disp->insert("  Total Price = ");
+  disp->insert(price.c_str());
+  disp->insert("\n");
 }
 
 Model findAndAdd(string partNumber, Model model)
 {
 
   int i = 0;
+  const char *s;
   static int head = 1;
   static int torso = 1;
   static int locomotor = 1;
@@ -90,7 +145,8 @@ Model findAndAdd(string partNumber, Model model)
     {
       if(model.head.size() >= 1)
       {
-        cout<< "WARNING: YOU ARE NOT ALLOWED TO HAVE MORE THAN 1 HEAD\n";
+        s = "WARNING: YOU ARE NOT ALLOWED TO HAVE MORE THAN 1 HEAD\n";
+        fl_alert(s,0);
       }
       else
       {
@@ -107,7 +163,8 @@ Model findAndAdd(string partNumber, Model model)
       {
         if(model.torso.size() >= 1)
         {
-          cout<< "WARNING: YOU ARE NOT ALLOWED TO HAVE MORE THAN 1 TORSO\n";
+          s = "WARNING: YOU ARE NOT ALLOWED TO HAVE MORE THAN 1 TORSO\n";
+          fl_alert(s,0);
         }
         else
         {
@@ -124,7 +181,8 @@ Model findAndAdd(string partNumber, Model model)
       {
         if(model.arm.size() >= 2)
         {
-          cout<< "WARNING: YOU ARE NOT ALLOWED TO HAVE MORE THAN 2 ARMS\n";
+          s = "WARNING: YOU ARE NOT ALLOWED TO HAVE MORE THAN 2 ARMS\n";
+          fl_alert(s,0);
         }
         else
         {
@@ -141,7 +199,8 @@ Model findAndAdd(string partNumber, Model model)
       {
         if(model.locomotor.size() >= 1)
         {
-          cout<< "WARNING: YOU ARE NOT ALLOWED TO HAVE MORE THAN 1 LOCOMOTOR\n";
+          s = "WARNING: YOU ARE NOT ALLOWED TO HAVE MORE THAN 1 LOCOMOTOR\n";
+          fl_alert(s,0);
         }
         else
         {
@@ -158,7 +217,8 @@ Model findAndAdd(string partNumber, Model model)
       {
         if(model.battery.size()>=(stoi(model.torso[0].batteryCompartments)))
         {
-          cout<<"WARNING: YOU CAN'T HAVE MORE BATTERIES THAN YOUR TORSO ALLOWS\n";
+          s = "WARNING: YOU CAN'T HAVE MORE BATTERIES THAN YOUR TORSO ALLOWS\n";
+          fl_alert(s,0);
         }
         else
         {

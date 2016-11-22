@@ -194,6 +194,12 @@ void eleven()
 
   if(model_list.size()>0 && salesman_list.size()>0 && customer_list.size()>0)
   {
+    Fl_Window *win = new Fl_Window(640, 480);
+       Fl_Text_Buffer *buff = new Fl_Text_Buffer();
+       Fl_Text_Display *disp = new Fl_Text_Display(20, 20, 640-40, 480-40, "Available Parts");
+       disp->buffer(buff);
+       win->resizable(*disp);
+       win->show();
     //cout<< "Here is a catalog of our latest Robot Models:\n\n";
     printModels();
     s = "Which model would you like to buy?";
@@ -210,7 +216,12 @@ void eleven()
     }
     else
     {
-      
+      disp->insert("Congratulations you just bought ");
+      disp->insert(to_string(amount).c_str());
+      disp->insert(" Robot(s) of model type ");
+      disp->insert(model_list[model-1].model_name.c_str());
+      disp->insert(" for $");
+      disp->insert(to_string((stoi(model_list[model-1].price) * amount)).c_str());
       //cout<< "Congratulations you just bought " <<amount << " robot(s) of model type " << model_list[model-1].model_name<< " for $" << stoi(model_list[model-1].price) * amount<<endl;
     }
 
